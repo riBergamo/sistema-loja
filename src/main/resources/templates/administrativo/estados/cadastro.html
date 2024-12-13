@@ -1,27 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html
     xmlns:th="https://thymeleaf.org"
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <title>CADASTRO</title>
+    </head>
+    <body>
+        <form action="/salvar" th:object="${estado}" method="POST">
+
+            <label>Nome do Estado</label>
+            <input type="text" th:field="*{nome}"/>
+
+            <label>Sigla do Estado</label>
+            <input type="text" th:field="*{sigla}"/>
+
+            <input type="hidden" th:field="*{id}"/>
+
+            <button type="submit">Salvar</button>
+        </form>
+    </body>
 </html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
-    <title>CADASTRO</title>
-</head>
-<body>
-<form action="/salvarEstado" th:object="${estado}" method="POST">
-    <label for="">Nome do Estado</label>
-    <input type="text" th:field="*{nome}">
-    <label for="">Sigla do Estado</label>
-    <input type="text" th:field="*{sigla}">
-
-    <input type="hidden" th:field="*{id}">
-
-    <button type="submit">Salvar</button>
-</form>
-</body>>

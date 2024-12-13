@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+
 import java.io.Serial;
 import java.io.Serializable;
 
@@ -12,7 +13,7 @@ import java.io.Serializable;
 @Table(name="estado")
 @Getter
 @Setter
-public class Estado implements Serializable {//*
+public class Estado implements Serializable {
 
     @Serial
     private static final long serialVersionUID = 1L;
@@ -20,7 +21,7 @@ public class Estado implements Serializable {//*
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
+    private String nome;
     private String sigla;
 
 
