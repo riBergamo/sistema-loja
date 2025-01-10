@@ -8,7 +8,7 @@ public class MainController {
 
     @GetMapping("/administrativo")
     public String acessarMain() {
-        return "administrativo/index";//caminho
+        return "administrativo/home";//caminho
     }
 
 

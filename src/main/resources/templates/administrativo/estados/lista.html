@@ -11,29 +11,63 @@
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
     <title>LISTA</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"></link>
+
 </head>
 <body>
-    <table>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <!-- Logo: Imagem e texto -->
+        <img src="https://png.pngtree.com/png-vector/20220519/ourmid/pngtree-white-triangle-shape-realistic-button-png-image_4689259.png"
+             width="30" height="30" class="d-inline-block align-top" alt=""></a>
+
+        <a class="navbar-brand" href="#">Sistema de Vendas</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+            </form>
+        </div>
+    </nav>
+
+    <table class="table">
         <thead>
             <tr>
-                <th>ID</th>
-                <th>Nome</th>
-                <th>Sigla</th>
-                <th>Ação</th>
+                <th scope="col">ID</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Sigla</th>
+                <th scope="col">Ação</th>
             </tr>
         </thead>
+
         <tbody th:each="estado: ${listar}"><!--listaEstados-->
             <tr>
                 <td th:text="${estado.id}"></td>
                 <td th:text="${estado.nome}"></td>
                 <td th:text="${estado.sigla}"></td>
                 <td colspan="2">
-                    <a th:href="@{/editar/{id}(id=${estado.id})}">Editar</a>
-                    <a th:href="@{/remover/{id}(id=${estado.id})}">Remover</a>
+                    <a th:href="@{/editar/{id}(id=${estado.id})}"><i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i></a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
+                    <a th:href="@{/remover/{id}(id=${estado.id})}">Remover</a> <!--<i class="fa-regular fa-trash-can" style="color: #000000;"></i>-->
                 </td>
             </tr>
         </tbody>
 
     </table>
+
+    <a class="btn btn-danger" href="/administrativo">Voltar</a>
+
 </body>
 </html>
