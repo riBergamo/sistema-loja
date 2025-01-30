@@ -48,7 +48,8 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Sigla</th>
+                <th scope="col">CEP</th>
+                <th scope="col">Estado</th>
                 <th scope="col">Ação</th>
             </tr>
         </thead>
@@ -57,7 +58,8 @@
             <tr th:each="cidade: ${listarCidade}">
                 <td th:text="${cidade.id}"></td>
                 <td th:text="${cidade.nome}"></td>
-                <td th:text="${cidade.sigla}"></td>
+                <td th:text="${cidade.cep}"></td>
+                <td th:text="${cidade.estado.nome}"></td>
                 <td colspan="2">
                     <a th:href="@{/editarCidade/{id}(id=${cidade.id})}">Editar</a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
                     <a th:href="@{/removerCidade/{id}(id=${cidade.id})}">Remover</a> <!--<i class="fa-regular fa-trash-can" style="color: #000000;"></i>-->
