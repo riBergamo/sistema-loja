@@ -8,6 +8,9 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
+    <!-- font Awesome - Icons-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>HOME</title>
 
 </head>
@@ -46,9 +49,30 @@
         <div class="col-md-3">
 
             <ul class="list-group" style="margin-top: 10px;">
-                <li class="list-group-item active">Menu</li>
-                <a href="/cadastrar"><li class="list-group-item">Cadastrar</li></a>      <!--cadastro estado-->
-                <a href="/listar"><li class="list-group-item">Lista de estados</li></a> <!--lista estado-->
+                <li class="list-group-item active"> <i class="fa-solid fa-cart-shopping"></i> Vendas </li> <!-- Funcionalidades -->
+                <a href="/cadastrarVenda"><li class="list-group-item">Efetuar Venda</li></a>
+                <a href="/listarVenda"><li class="list-group-item">Listar Vendas</li></a>
+                <a href="/cadastrarEstado"><li class="list-group-item">Efetuar Entrada de Produto</li></a>
+                <a href="/ListarEntrada"><li class="list-group-item">Listar Entrada de Produtos</li></a>
+
+
+                <li class="list-group-item active"> <i class="fa-solid fa-plus"></i> Cadastros </li>
+                <a href="/cadastrarEstado"><li class="list-group-item">Cadastrar Estado</li></a>      <!--cadastro estado-->
+                <a href="/cadastrarCidade"><li class="list-group-item">Cadastrar Cidade</li></a>
+                <a href="/cadastrarFuncionario"><li class="list-group-item">Cadastrar Funcionário</li></a>
+                <a href="/cadastrarCliente"><li class="list-group-item">Cadastrar Cliente</li></a>
+                <a href="/cadastrarFornecedor"><li class="list-group-item">Cadastrar Fornecedor</li></a>
+                <a href="/cadastrarProduto"><li class="list-group-item">Cadastrar Produto</li></a>
+
+                <li class="list-group-item active"> <i class="fa-solid fa-list"></i> Listas </li>
+                <a href="/listarEstado"><li class="list-group-item">Listar Estado</li></a>
+                <a href="/listarCidade"><li class="list-group-item">Listar Cidade</li></a>
+                <a href="/listarFuncionario"><li class="list-group-item">Listar Funcionário</li></a>
+                <a href="/listarCliente"><li class="list-group-item">Listar Cliente</li></a>
+                <a href="/listarFornecedor"><li class="list-group-item">Listar Fornecedor</li></a>
+                <a href="/listarProduto"><li class="list-group-item">Listar Produto</li></a>
+
+                <a href="/listarEstado"><li class="list-group-item">Lista de Estados</li></a>
             </ul>
 
         </div>
@@ -67,5 +91,6 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 </body>
 </html>

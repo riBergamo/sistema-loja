@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br"
-      xmlns:th="https://thymeleaf.org"
-      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    xmlns:th="https://thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="utf-8">
@@ -54,13 +54,13 @@
         </thead>
 
         <tbody>
-            <tr th:each="estado: ${listarEstado}">
-                <td th:text="${estado.id}"></td>
-                <td th:text="${estado.nome}"></td>
-                <td th:text="${estado.sigla}"></td>
+            <tr th:each="cidade: ${listarCidade}">
+                <td th:text="${cidade.id}"></td>
+                <td th:text="${cidade.nome}"></td>
+                <td th:text="${cidade.sigla}"></td>
                 <td colspan="2">
-                    <a th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar</a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
-                    <a th:href="@{/removerEstado/{id}(id=${estado.id})}">Remover</a> <!--<i class="fa-regular fa-trash-can" style="color: #000000;"></i>-->
+                    <a th:href="@{/editarCidade/{id}(id=${cidade.id})}">Editar</a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
+                    <a th:href="@{/removerCidade/{id}(id=${cidade.id})}">Remover</a> <!--<i class="fa-regular fa-trash-can" style="color: #000000;"></i>-->
                 </td>
             </tr>
         </tbody>
@@ -68,7 +68,7 @@
     </table>
 
     <a class="btn btn-danger" href="/administrativo"> <i class="fa-solid fa-share fa-flip-horizontal"></i> Voltar</a>
-    <a class="btn btn-dark" href="/cadastrarEstado"> <i class="fa-solid fa-plus"></i> Cadastrar</a>
+    <a class="btn btn-dark" href="/cadastrarCidade"> <i class="fa-solid fa-plus"></i> Cadastrar</a>
 
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->

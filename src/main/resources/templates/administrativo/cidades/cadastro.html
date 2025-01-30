@@ -43,22 +43,28 @@
 </nav>
 
 <div class="container">
-    <form action="/salvarEstado" th:object="${estado}" method="POST">
+    <form action="/salvarCidade" th:object="${cidade}" method="POST">
         <a class="btn btn-danger" href="/administrativo"> <i class="fa-solid fa-share fa-flip-horizontal"></i> Voltar</a>
 
         <div class="form-group">
             <label for="id">ID:</label>
             <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
 
-            <label for="nome">Nome do Estado:</label>
-            <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="">
+            <label>Nome da Cidade:</label>
+            <input type="text" required class="form-control" id="nome" th:field="*{nome}" placeholder="">
 
-            <label for="sigla">Sigla do Estado:</label>
-            <input type="text" class="form-control" id="sigla" th:field="*{sigla}" placeholder="">
+            <label>CEP da Cidade:</label>
+            <input type="text" required class="form-control" id="cep" th:field="*{cep}" placeholder="">
+
+            <label>Estado:</label>
+            <select th:field="*{estado}" class="form-control">
+                <option th:each="est : ${listarEstado}" th:value="${est.id}" th:text="${est.nome}"></option>
+            </select>
+
         </div>
 
-        <a href="/salvarEstado"><button type="submit" class="btn btn-dark"> <i class="fa-solid fa-floppy-disk"></i> Salvar</button></a>
-        <a class="btn btn-dark" href="/listarEstado"> <i class="fa-solid fa-list"></i> Ver lista</a>
+        <a href="/salvarCidade"><button type="submit" class="btn btn-dark"> <i class="fa-solid fa-floppy-disk"></i> Salvar</button></a>
+        <a class="btn btn-dark" href="/listarCidade"> <i class="fa-solid fa-list"></i> Ver lista</a>
 
     </form>
 </div>
@@ -68,6 +74,12 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $(document).ready(function() {
+      $('#cep').mask('00000-000');
+    });
+</script>
 
 </body>
 </html>
