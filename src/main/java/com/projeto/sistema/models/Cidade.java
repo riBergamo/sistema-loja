@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 
 @Entity
-@Table(name="cidade")
+@Table(name="cidades")
 @Getter
 @Setter
 public class Cidade implements Serializable {
@@ -25,6 +25,4 @@ public class Cidade implements Serializable {
 
     @ManyToOne
     private Estado estado;
-
-
 }

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="pt-br"
-    xmlns:th="https://thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:th="https://thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <head>
     <meta charset="utf-8">
@@ -43,30 +43,69 @@
 </nav>
 
 <div class="container">
-    <form action="/salvarCidade" th:object="${cidade}" method="POST">
+    <form action="/salvarFuncionario" th:object="${funcionario}" method="POST">
         <div style="margin: 20px 20px 20px 0">
             <a class="btn btn-danger" href="/administrativo"> <i class="fa-solid fa-share fa-flip-horizontal"></i> Voltar</a>
         </div>
 
-        <div class="form-group">
+        <div>
             <label for="id">ID:</label>
             <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
-
-            <label>Nome da Cidade:</label>
-            <input type="text" required class="form-control" id="nome" th:field="*{nome}" placeholder="">
-
-            <label>CEP da Cidade:</label>
-            <input type="text" required class="form-control" id="cep" th:field="*{cep}" placeholder="">
-
-            <label>Estado:</label>
-            <select th:field="*{estado}" class="form-control">
-                <option th:each="est : ${listarEstado}" th:value="${est.id}" th:text="${est.nome}"></option>
-            </select>
-
         </div>
 
-        <a href="/salvarCidade"><button type="submit" class="btn btn-dark"> <i class="fa-solid fa-floppy-disk"></i> Salvar</button></a>
-        <a class="btn btn-dark" href="/listarCidade"> <i class="fa-solid fa-list"></i> Ver lista</a>
+        <div class="row">
+            <div class="col-md">
+                <label>Nome da Funcionario:</label>
+                <input type="text" required class="form-control" id="nome" th:field="*{nome}" placeholder="">
+
+            </div>
+            <div class="col-md">
+                <label>CPF:</label>
+                <input type="text" required class="form-control" id="cpf" th:field="*{cpf}" placeholder="">
+
+            </div>
+            <div class="col-md">
+                <label>Telefone:</label>
+                <input type="text" required class="form-control" id="telefone" th:field="*{telefone}" placeholder="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <label>Endereço:</label>
+                <input type="text" required class="form-control" id="endereco" th:field="*{endereco}" placeholder="">
+            </div>
+            <div class="col-md">
+                <label>Número:</label>
+                <input type="text" required class="form-control" id="numero" th:field="*{numero}" placeholder="">
+            </div>
+            <div class="col-md">
+                <label>Bairro:</label>
+                <input type="text" required class="form-control" id="bairro" th:field="*{bairro}" placeholder="">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md">
+                <label>Email:</label>
+                <input type="text" required class="form-control" id="email" th:field="*{email}" placeholder="">
+            </div>
+            <div class="col-md">
+                <label>Função:</label>
+                <input type="text" required class="form-control" id="funcao" th:field="*{funcao}" placeholder="">
+            </div>
+            <div class="col-md">
+                <label>Cidade:</label>
+                <select th:field="*{cidade}" class="form-control">
+                    <option th:each="est : ${listarCidade}" th:value="${est.id}" th:text="${est.nome}"></option>
+                </select>
+            </div>
+        </div>
+
+        <div style="margin: 20px 20px 20px 0">
+            <a href="/salvarFuncionario"><button type="submit" class="btn btn-dark"> <i class="fa-solid fa-floppy-disk"></i> Salvar</button></a>
+            <a class="btn btn-dark" href="/listarFuncionario"> <i class="fa-solid fa-list"></i> Ver lista</a>
+        </div>
 
     </form>
 </div>
@@ -79,7 +118,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script>
     $(document).ready(function() {
-      $('#cep').mask('00000-000');
+      $('#cpf').mask('000.000.000-00');
+      $('#telefone').mask('00 00000-0000');
     });
 </script>
 
