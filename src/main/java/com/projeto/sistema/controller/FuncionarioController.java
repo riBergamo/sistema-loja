@@ -1,8 +1,8 @@
 package com.projeto.sistema.controller;
 
-import com.projeto.sistema.models.Funcionario;
-import com.projeto.sistema.repositorys.FuncionarioRepository;
-import com.projeto.sistema.repositorys.CidadeRepository;
+import com.projeto.sistema.model.Funcionario;
+import com.projeto.sistema.repository.FuncionarioRepository;
+import com.projeto.sistema.repository.CidadeRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,6 @@
-package com.projeto.sistema.repositorys;
+package com.projeto.sistema.repository;
 
-import com.projeto.sistema.models.Cidade;
-import com.projeto.sistema.models.Estado;
+import com.projeto.sistema.model.Cidade;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface CidadeRepository extends JpaRepository<Cidade, Long> {

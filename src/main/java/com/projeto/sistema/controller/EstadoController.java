@@ -1,7 +1,7 @@
 package com.projeto.sistema.controller;
 
-import com.projeto.sistema.models.Estado;
-import com.projeto.sistema.repositorys.EstadoRepository;
+import com.projeto.sistema.model.Estado;
+import com.projeto.sistema.repository.EstadoRepository;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
