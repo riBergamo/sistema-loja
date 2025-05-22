@@ -38,7 +38,7 @@
             </ul>
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-                <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button><!--Pesquisar-->
+                <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
             </form>
         </div>
     </nav>
@@ -48,19 +48,31 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">Nome</th>
-                <th scope="col">Sigla</th>
+                <th scope="col">Código de Barras</th>
+                <th scope="col">Unidade de Medida</th>
+                <th scope="col">Estoque</th>
+                <th scope="col">Preço de Custo</th>
+                <th scope="col">Preço de Venda</th>
+                <th scope="col">Lucro</th>
+                <th scope="col">Margem de Lucro</th>
                 <th scope="col">Ação</th>
             </tr>
         </thead>
 
         <tbody>
-            <tr th:each="estado: ${listarEstado}">
-                <td th:text="${estado.id}"></td>
-                <td th:text="${estado.nome}"></td>
-                <td th:text="${estado.sigla}"></td>
+            <tr th:each="produto: ${listarProduto}">
+                <td th:text="${produto.id}"></td>
+                <td th:text="${produto.nome}"></td>
+                <td th:text="${produto.codigoDeBarras}"></td>
+                <td th:text="${produto.unidadeDeMedida}"></td>
+                <td th:text="${produto.estoque}"></td>
+                <td th:text="${produto.precoCusto}"></td>
+                <td th:text="${produto.precoVenda}"></td>
+                <td th:text="${produto.lucro}"></td>
+                <td th:text="${produto.margemDeLucro}"></td>
                 <td colspan="2">
-                    <a th:href="@{/editarEstado/{id}(id=${estado.id})}">Editar</a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
-                    <a th:href="@{/removerEstado/{id}(id=${estado.id})}">Remover</a> <!--<i class="fa-regular fa-trash-can" style="color: #000000;"></i>-->
+                    <a th:href="@{/editarProduto/{id}(id=${produto.id})}">Editar</a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
+                    <a th:href="@{/removerProduto/{id}(id=${produto.id})}">Remover</a> <!--<i class="fa-regular fa-trash-can" style="color: #000000;"></i>-->
                 </td>
             </tr>
         </tbody>
@@ -68,7 +80,7 @@
     </table>
 
     <a class="btn btn-danger" href="/administrativo"> <i class="fa-solid fa-share fa-flip-horizontal"></i> Voltar</a>
-    <a class="btn btn-dark" href="/cadastrarEstado"> <i class="fa-solid fa-plus"></i> Cadastrar</a>
+    <a class="btn btn-dark" href="/cadastrarProduto"> <i class="fa-solid fa-plus"></i> Cadastrar</a>
 
     <!-- JavaScript (Opcional) -->
     <!-- jQuery primeiro, depois Popper.js, depois Bootstrap JS -->

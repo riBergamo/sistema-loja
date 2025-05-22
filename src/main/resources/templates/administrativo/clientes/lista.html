@@ -38,7 +38,7 @@
         </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Pesquisar" aria-label="Pesquisar">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit"><i class="fa-solid fa-magnifying-glass" style="color: #ffffff;"></i></button><!--Pesquisar-->
         </form>
     </div>
 </nav>
@@ -71,6 +71,7 @@
         <td th:text="${cliente.email}"></td>
         <td th:text="${cliente.cidade.nome}"></td>
         <td th:text="${cliente.cpf}"></td>
+
         <td colspan="2">
             <a th:href="@{/editarCliente/{id}(id=${cliente.id})}">Editar</a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
             <a th:href="@{/removerCliente/{id}(id=${cliente.id})}">Remover</a> <!--<i class="fa-regular fa-trash-can" style="color: #000000;"></i>-->

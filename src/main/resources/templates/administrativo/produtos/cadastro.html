@@ -43,25 +43,57 @@
 </nav>
 
 <div class="container">
-    <form action="/salvarEstado" th:object="${estado}" method="POST">
+    <form action="/salvarProduto" th:object="${produto}" method="POST">
+        <div>
+            <div style="margin: 20px 20px 20px 0">
+                 <a class="btn btn-danger" href="/administrativo"> <i class="fa-solid fa-share fa-flip-horizontal"></i> Voltar</a>
+            </div>
+
+            <div>
+                <label for="id">ID:</label>
+                <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
+            </div>
+            <div>
+                <label>Nome do Produto:</label>
+                <input type="text" required class="form-control" id="nome" th:field="*{nome}" placeholder="">
+            </div>
+            <div>
+                <label>Código de Barras:</label>
+                <input type="text" required class="form-control" id="codigoDeBarras" th:field="*{codigoDeBarras}" placeholder="">
+            </div>
+            <div>
+                <label>Unidade de Medida:</label>
+                <input type="text" required class="form-control" id="unidadeDeMedida" th:field="*{unidadeDeMedida}" placeholder="">
+            </div>
+
+            <div class="row">
+                <div class="col-md">
+                    <label>Quantidade em Estoque:</label>
+                    <input type="number" required class="form-control" id="estoque" th:field="*{estoque}" placeholder="">
+                </div>
+                <div class="col-md">
+                    <label>Preço de Custo:</label>
+                    <input type="number" required class="form-control" id="precoCusto" th:field="*{precoCusto}" placeholder="">
+                </div>
+                <div class="col-md">
+                    <label>Preço de Venda:</label>
+                    <input type="number" required class="form-control" id="precoVenda" th:field="*{precoVenda}" placeholder="">
+                </div>
+                <div class="col-md">
+                    <label>Lucro:</label>
+                    <input type="number" required class="form-control" id="lucro" th:field="*{lucro}" placeholder="">
+                </div>
+                <div class="col-md">
+                    <label>Margem de Lucro:</label>
+                    <input type="number" required class="form-control" id="margemDeLucro" th:field="*{margemDeLucro}" placeholder="">
+                </div>
+            </div>
+        </div>
+
         <div style="margin: 20px 20px 20px 0">
-             <a class="btn btn-danger" href="/administrativo"> <i class="fa-solid fa-share fa-flip-horizontal"></i> Voltar</a>
+            <a href="/salvarProduto"><button type="submit" class="btn btn-dark"> <i class="fa-solid fa-floppy-disk"></i> Salvar</button></a>
+            <a class="btn btn-dark" href="/listarProduto"> <i class="fa-solid fa-list"></i> Ver lista</a>
         </div>
-
-        <div class="form-group">
-            <label for="id">ID:</label>
-            <input type="text" readonly="true" class="form-control" id="id" th:field="*{id}">
-
-            <label for="nome">Nome do Estado:</label>
-            <input type="text" class="form-control" id="nome" th:field="*{nome}" placeholder="">
-
-            <label for="sigla">Sigla do Estado:</label>
-            <input type="text" class="form-control" id="sigla" th:field="*{sigla}" placeholder="">
-        </div>
-
-        <a href="/salvarEstado"><button type="submit" class="btn btn-dark"> <i class="fa-solid fa-floppy-disk"></i> Salvar</button></a>
-        <a class="btn btn-dark" href="/listarEstado"> <i class="fa-solid fa-list"></i> Ver lista</a>
-
     </form>
 </div>
 
