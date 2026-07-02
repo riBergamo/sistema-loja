@@ -155,7 +155,3 @@ Algumas ideias para evoluir o projeto:
 - Criar tela de vendas
 - Criar dashboard com indicadores da loja
 - Criar testes para controllers e regras de negocio
-
-## Autor
-
-Projeto desenvolvido para estudo e pratica com Java, Spring Boot e Thymeleaf.
