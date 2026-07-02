@@ -11,7 +11,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <title>CADASTRO</title>
+        <link rel="stylesheet" href="/css/admin.css">
+<title>CADASTRO</title>
 </head>
 <body>
 
@@ -21,7 +22,7 @@
     <img src="https://png.pngtree.com/png-vector/20220519/ourmid/pngtree-white-triangle-shape-realistic-button-png-image_4689259.png"
          width="30" height="30" class="d-inline-block align-top" alt=""></a>
 
-    <a class="navbar-brand" href="#">Sistema de Vendas</a>
+    <a class="navbar-brand" href="/administrativo">Sistema de Vendas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -29,10 +30,10 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
+                <a class="nav-link" href="/administrativo">Home <span class="sr-only">(página atual)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="/listarProduto">Produtos</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -56,36 +57,44 @@
             <div>
                 <label>Nome do Produto:</label>
                 <input type="text" required class="form-control" id="nome" th:field="*{nome}" placeholder="">
+                <div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
             </div>
             <div>
                 <label>Código de Barras:</label>
                 <input type="text" required class="form-control" id="codigoDeBarras" th:field="*{codigoDeBarras}" placeholder="">
+                <div class="text-danger" th:if="${#fields.hasErrors('codigoDeBarras')}" th:errors="*{codigoDeBarras}"></div>
             </div>
             <div>
                 <label>Unidade de Medida:</label>
                 <input type="text" required class="form-control" id="unidadeDeMedida" th:field="*{unidadeDeMedida}" placeholder="">
+                <div class="text-danger" th:if="${#fields.hasErrors('unidadeDeMedida')}" th:errors="*{unidadeDeMedida}"></div>
             </div>
 
             <div class="row">
                 <div class="col-md">
                     <label>Quantidade em Estoque:</label>
                     <input type="number" required class="form-control" id="estoque" th:field="*{estoque}" placeholder="">
+                    <div class="text-danger" th:if="${#fields.hasErrors('estoque')}" th:errors="*{estoque}"></div>
                 </div>
                 <div class="col-md">
                     <label>Preço de Custo:</label>
                     <input type="number" required class="form-control" id="precoCusto" th:field="*{precoCusto}" placeholder="">
+                    <div class="text-danger" th:if="${#fields.hasErrors('precoCusto')}" th:errors="*{precoCusto}"></div>
                 </div>
                 <div class="col-md">
                     <label>Preço de Venda:</label>
                     <input type="number" required class="form-control" id="precoVenda" th:field="*{precoVenda}" placeholder="">
+                    <div class="text-danger" th:if="${#fields.hasErrors('precoVenda')}" th:errors="*{precoVenda}"></div>
                 </div>
                 <div class="col-md">
                     <label>Lucro:</label>
                     <input type="number" required class="form-control" id="lucro" th:field="*{lucro}" placeholder="">
+                    <div class="text-danger" th:if="${#fields.hasErrors('lucro')}" th:errors="*{lucro}"></div>
                 </div>
                 <div class="col-md">
                     <label>Margem de Lucro:</label>
                     <input type="number" required class="form-control" id="margemDeLucro" th:field="*{margemDeLucro}" placeholder="">
+                    <div class="text-danger" th:if="${#fields.hasErrors('margemDeLucro')}" th:errors="*{margemDeLucro}"></div>
                 </div>
             </div>
         </div>

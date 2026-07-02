@@ -2,6 +2,7 @@ package com.projeto.sistema.controller;
 
 import com.projeto.sistema.model.Produto;
 import com.projeto.sistema.repository.ProdutoRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ProdutoController {
     @Autowired
     private ProdutoRepository produtoRepository;
 
-    @GetMapping("/cadastrarProduto")//cadastrarProduto
+    @GetMapping("/cadastrarProduto")
     public ModelAndView cadastrar(Produto produto) {
         ModelAndView mv = new ModelAndView("administrativo/produtos/cadastro");
         mv.addObject("produto", produto);
@@ -30,7 +31,7 @@ public class ProdutoController {
         return mv;
     }
 
-    @GetMapping("/listarProduto")//listaProduto
+    @GetMapping("/listarProduto")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("administrativo/produtos/lista");
         mv.addObject("listarProduto", produtoRepository.findAll());
@@ -38,15 +39,15 @@ public class ProdutoController {
         return mv;
     }
 
-    @GetMapping("/editarProduto/{id}")//editarProduto
+    @GetMapping("/editarProduto/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
         Optional<Produto> produto = produtoRepository.findById(id);
 
         return cadastrar(produto.get());
     }
 
-    @PostMapping("/salvarProduto")//salvarProduto
-    public ModelAndView salvar(Produto produto, BindingResult result) {
+    @PostMapping("/salvarProduto")
+    public ModelAndView salvar(@Valid Produto produto, BindingResult result) {
         if (result.hasErrors()) {
             return cadastrar(produto);
         }
@@ -55,7 +56,7 @@ public class ProdutoController {
         return cadastrar(new Produto());
     }
 
-    @GetMapping("/removerProduto/{id}")//removerProduto
+    @GetMapping("/removerProduto/{id}")
     public ModelAndView remover(@PathVariable("id") Long id) {
         Optional<Produto> produto = produtoRepository.findById(id);
         produtoRepository.delete(produto.get());

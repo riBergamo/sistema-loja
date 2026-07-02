@@ -26,7 +26,6 @@ public class Fornecedor {
     private int numero;//de endereco
     private String bairro;
     private String email;
-
-    @ManyToOne
-    private Cidade cidade;
+    private String estado;
+    private String cidade;
 }

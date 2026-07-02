@@ -1,8 +1,8 @@
 package com.projeto.sistema.controller;
 
 import com.projeto.sistema.model.Cliente;
-import com.projeto.sistema.repository.CidadeRepository;
 import com.projeto.sistema.repository.ClienteRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +22,17 @@ public class ClienteController {
 
     @Autowired
     private ClienteRepository clienteRepository;
-    @Autowired
-    private CidadeRepository cidadeRepository;
 
-    @GetMapping("/cadastrarCliente")//cadastrarCliente
+    @GetMapping("/cadastrarCliente")
     public ModelAndView cadastrar(Cliente cliente) {
         ModelAndView mv = new ModelAndView("administrativo/clientes/cadastro");
 
         mv.addObject("cliente", cliente);
-        mv.addObject("listarCidade", cidadeRepository.findAll());
 
         return mv;
     }
 
-    @GetMapping("/listarCliente")//listaCliente
+    @GetMapping("/listarCliente")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("administrativo/clientes/lista");
         mv.addObject("listarCliente", clienteRepository.findAll());
@@ -43,15 +40,15 @@ public class ClienteController {
         return mv;
     }
 
-    @GetMapping("/editarCliente/{id}")//editarCliente
+    @GetMapping("/editarCliente/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
         Optional<Cliente> cliente = clienteRepository.findById(id);
 
         return cadastrar(cliente.get());
     }
 
-    @PostMapping("/salvarCliente")//salvarCliente
-    public ModelAndView salvar(Cliente cliente, BindingResult result) {
+    @PostMapping("/salvarCliente")
+    public ModelAndView salvar(@Valid Cliente cliente, BindingResult result) {
         if (result.hasErrors()) {
             return cadastrar(cliente);
         }
@@ -60,7 +57,7 @@ public class ClienteController {
         return cadastrar(new Cliente());
     }
 
-    @GetMapping("/removerCliente/{id}")//removerCliente
+    @GetMapping("/removerCliente/{id}")
     public ModelAndView remover(@PathVariable("id") Long id) {
         Optional<Cliente> cliente = clienteRepository.findById(id);
         clienteRepository.delete(cliente.get());

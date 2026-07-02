@@ -26,7 +26,6 @@ public class Funcionario {
     private String bairro;
     private String email;
     private String funcao;
-
-    @ManyToOne
-    private Cidade cidade;
+    private String estado;
+    private String cidade;
 }

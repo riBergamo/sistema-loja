@@ -1,8 +1,8 @@
 package com.projeto.sistema.controller;
 
 import com.projeto.sistema.model.Fornecedor;
-import com.projeto.sistema.repository.CidadeRepository;
 import com.projeto.sistema.repository.FornecedorRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,20 +22,17 @@ public class FornecedorController {
 
     @Autowired
     private FornecedorRepository fornecedorRepository;
-    @Autowired
-    private CidadeRepository cidadeRepository;
 
-    @GetMapping("/cadastrarFornecedor")//cadastrarFornecedor
+    @GetMapping("/cadastrarFornecedor")
     public ModelAndView cadastrar(Fornecedor fornecedor) {
         ModelAndView mv = new ModelAndView("administrativo/fornecedores/cadastro");
 
         mv.addObject("fornecedor", fornecedor);
-        mv.addObject("listarCidade", cidadeRepository.findAll());
 
         return mv;
     }
 
-    @GetMapping("/listarFornecedor")//listaFornecedor
+    @GetMapping("/listarFornecedor")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("administrativo/fornecedores/lista");
         mv.addObject("listarFornecedor", fornecedorRepository.findAll());
@@ -43,15 +40,15 @@ public class FornecedorController {
         return mv;
     }
 
-    @GetMapping("/editarFornecedor/{id}")//editarFornecedor
+    @GetMapping("/editarFornecedor/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
         Optional<Fornecedor> fornecedor = fornecedorRepository.findById(id);
 
         return cadastrar(fornecedor.get());
     }
 
-    @PostMapping("/salvarFornecedor")//salvarFornecedor
-    public ModelAndView salvar(Fornecedor fornecedor, BindingResult result) {
+    @PostMapping("/salvarFornecedor")
+    public ModelAndView salvar(@Valid Fornecedor fornecedor, BindingResult result) {
         if (result.hasErrors()) {
             return cadastrar(fornecedor);
         }
@@ -60,7 +57,7 @@ public class FornecedorController {
         return cadastrar(new Fornecedor());
     }
 
-    @GetMapping("/removerFornecedor/{id}")//removerFornecedor
+    @GetMapping("/removerFornecedor/{id}")
     public ModelAndView remover(@PathVariable("id") Long id) {
         Optional<Fornecedor> fornecedor = fornecedorRepository.findById(id);
         fornecedorRepository.delete(fornecedor.get());

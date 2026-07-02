@@ -2,7 +2,7 @@ package com.projeto.sistema.controller;
 
 import com.projeto.sistema.model.Funcionario;
 import com.projeto.sistema.repository.FuncionarioRepository;
-import com.projeto.sistema.repository.CidadeRepository;
+import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,21 +22,18 @@ public class FuncionarioController {
 
     @Autowired
     private FuncionarioRepository funcionarioRepository;
-    @Autowired
-    private CidadeRepository cidadeRepository;
 
 
-    @GetMapping("/cadastrarFuncionario")//cadastrarFuncionario
+    @GetMapping("/cadastrarFuncionario")
     public ModelAndView cadastrar(Funcionario funcionario) {
         ModelAndView mv = new ModelAndView("administrativo/funcionarios/cadastro");
 
         mv.addObject("funcionario", funcionario);
-        mv.addObject("listarCidade", cidadeRepository.findAll());
 
         return mv;
     }
 
-    @GetMapping("/listarFuncionario")//listaFuncionario
+    @GetMapping("/listarFuncionario")
     public ModelAndView listar() {
         ModelAndView mv = new ModelAndView("administrativo/funcionarios/lista");
         mv.addObject("listarFuncionario", funcionarioRepository.findAll());
@@ -44,15 +41,15 @@ public class FuncionarioController {
         return mv;
     }
 
-    @GetMapping("/editarFuncionario/{id}")//editarFuncionario
+    @GetMapping("/editarFuncionario/{id}")
     public ModelAndView editar(@PathVariable("id") Long id) {
         Optional<Funcionario> funcionario = funcionarioRepository.findById(id);
 
         return cadastrar(funcionario.get());
     }
 
-    @PostMapping("/salvarFuncionario")//salvarFuncionario
-    public ModelAndView salvar(Funcionario funcionario, BindingResult result) {
+    @PostMapping("/salvarFuncionario")
+    public ModelAndView salvar(@Valid Funcionario funcionario, BindingResult result) {
         if (result.hasErrors()) {
             return cadastrar(funcionario);
         }
@@ -61,7 +58,7 @@ public class FuncionarioController {
         return cadastrar(new Funcionario());
     }
 
-    @GetMapping("/removerFuncionario/{id}")//removerFuncionario
+    @GetMapping("/removerFuncionario/{id}")
     public ModelAndView remover(@PathVariable("id") Long id) {
         Optional<Funcionario> funcionario = funcionarioRepository.findById(id);
         funcionarioRepository.delete(funcionario.get());

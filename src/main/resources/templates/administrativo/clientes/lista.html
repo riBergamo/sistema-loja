@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
           integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css" />
+        <link rel="stylesheet" href="/css/admin.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/2.2.1/css/dataTables.dataTables.css" />
 
 
     <title>LISTA</title>
@@ -22,7 +23,7 @@
     <img src="https://png.pngtree.com/png-vector/20220519/ourmid/pngtree-white-triangle-shape-realistic-button-png-image_4689259.png"
          width="30" height="30" class="d-inline-block align-top" alt=""></a>
 
-    <a class="navbar-brand" href="#">Sistema de Vendas</a>
+    <a class="navbar-brand" href="/administrativo">Sistema de Vendas</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#conteudoNavbarSuportado" aria-controls="conteudoNavbarSuportado" aria-expanded="false" aria-label="Alterna navegação">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,10 +31,10 @@
     <div class="collapse navbar-collapse" id="conteudoNavbarSuportado">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Home <span class="sr-only">(página atual)</span></a>
+                <a class="nav-link" href="/administrativo">Home <span class="sr-only">(página atual)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="/listarProduto">Produtos</a>
             </li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
@@ -54,6 +55,7 @@
         <th scope="col">Número</th>
         <th scope="col">Bairro</th>
         <th scope="col">Email</th>
+        <th scope="col">Estado</th>
         <th scope="col">Cidade</th>
         <th scope="col">Ação</th>
     </tr>
@@ -69,8 +71,8 @@
         <td th:text="${cliente.numero}"></td>
         <td th:text="${cliente.bairro}"></td>
         <td th:text="${cliente.email}"></td>
-        <td th:text="${cliente.cidade.nome}"></td>
-        <td th:text="${cliente.cpf}"></td>
+        <td th:text="${cliente.estado}"></td>
+        <td th:text="${cliente.cidade}"></td>
 
         <td colspan="2">
             <a th:href="@{/editarCliente/{id}(id=${cliente.id})}">Editar</a> <!--<i class="fa-regular fa-pen-to-square fa-lg" style="color: #000000;"></i>-->
